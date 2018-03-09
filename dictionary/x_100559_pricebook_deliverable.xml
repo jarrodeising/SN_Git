@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Deliverable" max_length="40" name="x_100559_pricebook_deliverable" type="collection">
+        <element label="Calculation Reference" max_length="32" name="calculation_reference" reference="x_100559_pricebook_deliverable" reference_qual="javascript:vf_showServiceDeliverables();" type="reference" use_reference_qualifier="advanced"/>
+        <element label="Description" max_length="500" name="description" type="string"/>
+        <element label="Effort" max_length="40" name="effort" type="integer"/>
+        <element choice="1" label="Lifecycle" max_length="40" name="lifecycle" type="choice">
+            <choice>
+                <element label="Initiation" sequence="10" value="4.Initiation"/>
+                <element label="Planning" sequence="20" value="5.Planning"/>
+                <element label="Design" sequence="30" value="3.Design"/>
+                <element label="Delivery" sequence="40" value="2.Delivery"/>
+                <element label="Support" sequence="50" value="1.Support"/>
+            </choice>
+        </element>
+        <element label="Multiplier" max_length="20" name="multiplier" type="decimal"/>
+        <element label="Name" max_length="80" name="name" type="string"/>
+        <element label="Calculated Task" max_length="40" name="overhead_task" type="boolean"/>
+        <element label="Service" max_length="32" name="service" reference="x_100559_pricebook_service" type="reference"/>
+        <index name="index">
+            <element name="service"/>
+        </index>
+        <index name="index2">
+            <element name="calculation_reference"/>
+        </index>
+    </element>
+</database>

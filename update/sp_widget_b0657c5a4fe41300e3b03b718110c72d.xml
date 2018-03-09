@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function ($scope, spUtil, $rootScope, $timeout, $location, spAriaUtil) {
+	c = this;
+
+	// Model to JSON for demo purpose
+	$scope.$watch('data', function(model) {
+		$scope.modelAsJson = angular.toJson(model, true);
+
+	}, true);
+}
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/**
+* For the correct positioning of the placeholder element, the dnd-list and
+* it's children must have position: relative
+*/
+.pbPicker ul[dnd-list],
+.pbPicker ul[dnd-list] &gt; li {
+  position: relative;
+}
+
+/**
+* The dnd-list should always have a min-height,
+* otherwise you can't drop to it once it's empty
+*/
+.pbPicker ul[dnd-list] {
+  min-height: 12px;
+  padding-left: 0px;
+}
+
+/**
+* The dndDraggingSource class will be applied to
+* the source element of a drag operation. It makes
+* sense to hide it to give the user the feeling
+* that he's actually moving it.
+*/
+.pbPicker ul[dnd-list] .dndDraggingSource {
+  display: none;
+}
+
+/**
+* An element with .dndPlaceholder class will be
+* added to the dnd-list while the user is dragging
+* over it.
+*/
+.pbPicker ul[dnd-list] .dndPlaceholder {
+  display: block;
+  min-height: 12px;
+}
+
+/**
+* The dnd-lists's child elements currently MUST have
+* position: relative. Otherwise we can not determine
+* whether the mouse pointer is in the upper or lower
+* half of the element we are dragging over. In other
+* browsers we can use event.offsetY for this.
+*/
+.pbPicker ul[dnd-list] li {
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+}
+
+.pbPicker ul[dnd-list] li.selected {
+    background-color: #ff9138;
+  color: #fff
+}
+
+/**
+* Show selected elements in green
+*/
+.bootSuccessHead {
+  box-color: #cddc39;
+  border-color: #cddc39;
+  background-color: #cddc39;
+  color: #343d47
+}
+.bootSuccessPanel {
+  box-color: #cddc39;
+  border-color: #cddc39;
+}
+
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>pb_picker</id>
+        <internal>false</internal>
+        <link/>
+        <name>PB Picker</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function($scope) {
+	var gr = $sp.getRecord();
+	if (gr == null)
+		return;
+
+	data.canRead = gr.canRead();
+	if (!data.canRead) 
+		return;
+
+	data.models = {
+		selected: null,
+		lists: {"Options": [], "Included": []}
+	};
+
+	var grScopes = new GlideRecord('x_100559_pricebook_service');
+	grScopes.addQuery('pricebook',gr.getUniqueValue());
+	grScopes.query();
+	while (grScopes.next()) {
+		var active = grScopes.getValue('active').toString();
+		var name = grScopes.getValue('name').toString();
+		var sysId = grScopes.getValue('sys_id').toString();
+		if (active == true) {
+			data.models.lists.Included.push({
+				label: name,
+				sysId: sysId
+			});
+		}
+		else {
+			data.models.lists.Options.push({
+				label: name,
+				sysId: sysId
+			});
+		}
+	}
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>vf.jarrod.eising</sys_created_by>
+        <sys_created_on>2018-03-01 22:35:58</sys_created_on>
+        <sys_id>b0657c5a4fe41300e3b03b718110c72d</sys_id>
+        <sys_mod_count>236</sys_mod_count>
+        <sys_name>PB Picker</sys_name>
+        <sys_package display_value="Pricebook V1" source="x_100559_pricebook">bf21c2354f101300e3b03b718110c7fa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Pricebook V1">bf21c2354f101300e3b03b718110c7fa</sys_scope>
+        <sys_update_name>sp_widget_b0657c5a4fe41300e3b03b718110c72d</sys_update_name>
+        <sys_updated_by>vf.jarrod.eising</sys_updated_by>
+        <sys_updated_on>2018-03-08 22:57:37</sys_updated_on>
+        <template><![CDATA[<div ng-if="data.canRead" class="pbPicker row">
+  <div class="col-md-12">
+    <h3>
+      ${Scope}
+    </h3>
+    <div class="row">
+      <div ng-repeat="(listName, list) in data.models.lists" class="col-md-6" ng-model="models">
+        <div class="panel panel-info bootSuccessPanel">
+          <div class="panel-heading bootSuccessHead">
+            {{listName}}
+          </div>
+          <ul dnd-list="list" 
+              class="ng-scope">
+            <li ng-repeat="item in list"
+                dnd-type="item"
+                dnd-draggable="item"
+                dnd-moved="list.splice($index, 1)"
+                dnd-effect-allowed="move"
+                dnd-selected="data.models.selected = item"
+                class="ng-binding ng-scope"
+                dragabble = "true"
+                ng-class="{'selected': data.models.selected === item}">
+              {{item.label}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div view-source="simple">
+  </div>
+</div>
+
+<div ng-if="data.canRead" class="col-md-8">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Generated Model</h3>
+    </div>
+    <div class="panel-body">
+      <pre class="code">{{modelAsJson}}</pre>
+    </div>
+  </div>
+</div>
+
+]]></template>
+    </sp_widget>
+</record_update>

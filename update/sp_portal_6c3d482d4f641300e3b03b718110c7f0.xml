@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_portal">
+    <sp_portal action="INSERT_OR_UPDATE">
+        <css_variables>$brand-primary: #278efc;
+$body-bg: #485563;
+$state-success-text: #cddc39;
+$sp-homepage-bg: #fff;
+$sp-navbar-divider-color: #cddc39;
+$text-color: #ffffff;
+$sp-logo-margin-y: .5rem;
+$navbar-inverse-link-hover-color: #fc8a3d;
+$panel-bg: #485563;
+$brand-success: #cddc39;
+$navbar-inverse-bg: #343d47;
+$brand-warning: #f0ad4e;
+$brand-danger: #d9534f;
+$sp-tagline-color: #717171;
+$navbar-inverse-link-color: #ffffff;
+$brand-info: #5bc0de;
+$link-color: #428bca;
+$sp-logo-margin-x: 15px;
+$btn-default-bg: #485563;
+$text-muted: #979797;
+</css_variables>
+        <default>false</default>
+        <homepage display_value="pricebook">3e8d8c6d4f641300e3b03b718110c775</homepage>
+        <icon/>
+        <kb_knowledge_base/>
+        <kb_knowledge_page/>
+        <login_page/>
+        <logo/>
+        <notfound_page/>
+        <quick_start_config/>
+        <sc_catalog/>
+        <sc_catalog_page/>
+        <sc_category_page/>
+        <sp_chat_queue/>
+        <sp_rectangle_menu display_value="PB Menu">62f495fd4f605300e3b03b718110c7c0</sp_rectangle_menu>
+        <sqanda_knowledge_base/>
+        <sys_class_name>sp_portal</sys_class_name>
+        <sys_created_by>vf.jarrod.eising</sys_created_by>
+        <sys_created_on>2018-02-27 11:45:14</sys_created_on>
+        <sys_id>6c3d482d4f641300e3b03b718110c7f0</sys_id>
+        <sys_mod_count>43</sys_mod_count>
+        <sys_name>Pricebook</sys_name>
+        <sys_package display_value="Pricebook V1" source="x_100559_pricebook">bf21c2354f101300e3b03b718110c7fa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Pricebook V1">bf21c2354f101300e3b03b718110c7fa</sys_scope>
+        <sys_update_name>sp_portal_6c3d482d4f641300e3b03b718110c7f0</sys_update_name>
+        <sys_updated_by>vf.jarrod.eising</sys_updated_by>
+        <sys_updated_on>2018-03-08 11:55:54</sys_updated_on>
+        <theme display_value="Stock">79315153cb33310000f8d856634c9c4b</theme>
+        <title>Pricebook</title>
+        <url_suffix>pb</url_suffix>
+    </sp_portal>
+    <sys_translated_text action="delete_multiple" query="documentkey=6c3d482d4f641300e3b03b718110c7f0"/>
+</record_update>

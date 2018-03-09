@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function() {
+	/* widget controller */
+	var c = this;
+
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.styled-select {
+   background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+   height: 29px;
+   overflow: hidden;
+   width: 240px;
+}
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 268px;
+}
+
+.styled-select.slate {
+   background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+   height: 34px;
+   width: 240px;
+}
+
+.styled-select.slate select {
+   border: 1px solid #ccc;
+   font-size: 16px;
+   height: 34px;
+   width: 268px;
+}
+
+.semi-square {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.blue    { background-color: #3b8ec2; }
+
+.styled-select.slate {
+  background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+  height: 34px;
+  width: 240px;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>selectbox</id>
+        <internal>false</internal>
+        <link/>
+        <name>SelectBox</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */ 
+	var list = [];
+	var grPB = new GlideRecordSecure('x_100559_pricebook_v1_table');
+	grPB.query();
+	while (grPB.next()) {
+		list.push({
+				label: grPB.short_description.toString(),
+				value: grPB.sys_id.toString()
+			});
+	}
+	data.account=list;
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>vf.jarrod.eising</sys_created_by>
+        <sys_created_on>2018-02-27 11:55:18</sys_created_on>
+        <sys_id>289f402d4f641300e3b03b718110c7b5</sys_id>
+        <sys_mod_count>45</sys_mod_count>
+        <sys_name>SelectBox</sys_name>
+        <sys_package display_value="Pricebook V1" source="x_100559_pricebook">bf21c2354f101300e3b03b718110c7fa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Pricebook V1">bf21c2354f101300e3b03b718110c7fa</sys_scope>
+        <sys_update_name>sp_widget_289f402d4f641300e3b03b718110c7b5</sys_update_name>
+        <sys_updated_by>vf.jarrod.eising</sys_updated_by>
+        <sys_updated_on>2018-02-27 21:13:03</sys_updated_on>
+        <template><![CDATA[<div>
+  <label type="text">
+    Account:
+  </label>
+</div>
+<div class="styled-select blue semi-square">
+    <select type="text"
+          id="selectCust"
+          class="dropdown"
+          ng-init="c.data.accSelected = c.options[0]" 
+          ng-model="c.data.accSelected" 
+          ng-options="item as item.label for item in data.account" 
+          required>
+  </select>
+</div>
+<div>
+  <label type="text">
+    Opportunity:
+  </label>
+</div>
+<div class="styled-select blue semi-square">
+    <select type="text"
+          id="selectCust"
+          class="dropdown"
+          ng-init="c.data.oppSelected = c.options[0]" 
+          ng-model="c.data.oppSelected" 
+          ng-options="item as item.label for item in data.account" 
+          required>
+  </select>
+</div>
+<div>
+  <label type="text">
+    PriceBook:
+  </label>
+</div>
+<div class="styled-select blue semi-square">
+    <select type="text"
+          id="selectCust"
+          class="dropdown"
+          ng-init="c.data.accselected = c.options[0]" 
+          ng-model="c.data.accselected" 
+          ng-options="item as item.label for item in data.account" 
+          required>
+  </select>
+</div>]]></template>
+    </sp_widget>
+</record_update>

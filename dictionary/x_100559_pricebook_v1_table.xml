@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element attributes="live_feed=true" extends="task" label="Pricebook V1 Table" max_length="40" name="x_100559_pricebook_v1_table" sizeclass="1" type="collection">
+        <element label="Opportunity" max_length="32" name="opportunity" reference="u_opportunity" type="reference"/>
+    </element>
+</database>

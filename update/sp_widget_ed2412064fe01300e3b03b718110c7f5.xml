@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function ($scope, spUtil, $rootScope, $timeout, $location, spAriaUtil) {
+	var c = this;
+	// Initiate loading and accessibility
+	$scope.loadingIndicator = $rootScope.loadingIndicator;
+	$scope.accessibilityEnabled = spAriaUtil.g_accessibility === "true";
+
+	$scope.$on('sp_loading_indicator', function(e, value) {
+		$scope.loadingIndicator = value;
+	});
+
+	$scope.data.pbQuery = 'failure=here';
+	$scope.data.oppQuery = 'failure=here';
+		
+	// Initiate company in scope
+	$scope.company = {
+		displayValue: $scope.data.company_dv,
+		value: $scope.data.company,
+		name: 'company'
+	};
+	// Initiate opportunity in scope
+	$scope.opportunity = {
+		displayValue: $scope.data.opportunity_dv,
+		value: $scope.data.opportunity,
+		name: 'opportunity'
+	};
+	// Initiate pricebook in scope
+	$scope.pricebook = {
+		value: $scope.data.pricebook,
+		displayValue: $scope.data.pricebook_dv,
+		name: 'pricebook'
+	};
+
+	// Handle sn-record-picker field changes
+	$scope.$on("field.change", function(evt, parms) {
+		if (parms.field.name == 'company') {
+			$scope.data.oppQuery = 'u_company=' + parms.newValue;
+			$('#op').select2("val",""); // Clears the Opportunity record picker
+			$('#pp').select2("val",""); // Clears the Pricebook record picker
+			$rootScope.$broadcast('pbCompSelected', parms.newValue);
+		}
+		else if (parms.field.name == 'opportunity') {
+			$scope.data.pbQuery = 'opportunity=' + parms.newValue;
+			$('#pp').select2("val","") // Clears the Pricebook record picker
+			$rootScope.$broadcast('pbOppSelected', parms.newValue);
+		}
+		else if (parms.field.name == 'pricebook') {
+			$location.url($location.path() + 
+										'?table=' + 'x_100559_pricebook_v1_table' + 
+										'&sys_id=' + parms.newValue + 
+										'&cust=' + $scope.company.value +
+										'&opp=' + $scope.opportunity.value +
+										'&view=' + 'pb'
+									 );
+		}
+
+		$rootScope.$on('sp.sessions', function(name, sessions) {
+			$scope.sessions = sessions;
+		});
+	});
+
+	// Update users for collaboration visual
+	$rootScope.$on('sp.sessions', function(name, sessions) {
+		$scope.sessions = sessions;
+	});
+	$scope.sessionCount = function() {
+		var num = 0;
+		var keys = Object.keys($scope.sessions);
+		for (var i = 0; i < keys.length; i++) {
+			if ($scope.sessions[keys[i]].status != "")
+				num++;
+		}
+		return num;
+	}	
+}
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.header-loader {
+	float: left;
+  	width: 24px;
+  	position: relative;
+  	top: 24px;
+}
+
+.cart-dropdown, .wishlist-menu {
+  width: 350px;
+  padding: 0;
+  z-index: 1000;
+  border-top-left-radius: 4px !important;
+  border-top-right-radius: 4px !important;
+
+  ul {
+    max-height: 300px;
+    overflow: auto;
+  }
+
+  .subtotal {
+    display: block;
+  }
+
+  .item-image {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    max-width:100%;
+    height:auto;
+  }
+  label, p {
+    padding: 0;
+    margin: 0;
+  }
+  .media {
+    padding: 0;
+    margin: 0;
+  }
+  .media-left &gt; a {
+    display: block;
+    width: 48px;
+    max-width: 48px;
+  }
+  .media-body {
+    label {
+      font-weight: bold;
+    }
+  }
+  li.media {
+    border-top: 1px solid #cccccc;
+    padding: 1rem;
+  }
+  .panel {
+    margin: 0;
+  }
+  .panel .panel-body {
+    padding: 0;
+  }
+  .btn-clear {
+		color: #333;
+    background-color: #fff;
+  }
+  p.quantity-price {
+    padding-top: 0.5rem;
+    span {
+      color: $text-muted;
+      padding-right: 0.5rem;
+    }
+  }
+  .align-right {
+  	text-align: right;
+  }
+}
+
+.avatar-container {
+  cursor: default;
+}
+
+.item-added-tooltip, wishlist-item-added-tooltip {
+  width: 184px;
+  font-size: 14px;
+}</css>
+        <data_table>sp_instance_menu</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>title</field_list>
+        <has_preview>true</has_preview>
+        <id>pb_header</id>
+        <internal>false</internal>
+        <link><![CDATA[function(scope, elem) {
+	$(elem).on('keydown','.header-menu-item',function(e){
+		var target = e.target;
+		if (target.localName == 'a') {
+			if(e.keyCode == 37) {
+				e.preventDefault();
+				$(target).parents('li').removeClass('open');
+				$(target).parents('li').prev('li').find('a').focus();
+			} else if(e.keyCode == 39) {
+				e.preventDefault();
+				$(target).parents('li').removeClass('open');
+				$(target).parents('li').next('li').find('a').focus();
+				
+			}
+			if(e.keyCode == 9) {
+				$(target).parents('li').removeClass('open');
+			}
+		}
+		});
+	}]]></link>
+        <name>PB Header</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function(){
+
+	var gr = $sp.getRecord();
+	if (gr == null)
+		return;
+
+	//Get Company record
+	var grCompany = new GlideRecord('core_company');
+	data.company = $sp.getParameter("cust");
+	grCompany.get(data.company);
+	data.company_dv = grCompany.getDisplayValue();
+
+	//Get Opportunity record
+	var grOpportunity = new GlideRecord('u_opportunity');
+	data.opportunity = $sp.getParameter("opp");
+	grOpportunity.get(data.opportunity);
+	data.opportunity_dv = grOpportunity.getDisplayValue();	
+	
+	//Get Pricebook record
+	data.pricebook = gr;
+	data.pricebook_dv = gr.getDisplayValue('number');
+	data.table = gr.getTableName();
+	data.sys_id = gr.getUniqueValue();
+
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>vf.jarrod.eising</sys_created_by>
+        <sys_created_on>2018-03-01 10:51:31</sys_created_on>
+        <sys_id>ed2412064fe01300e3b03b718110c7f5</sys_id>
+        <sys_mod_count>295</sys_mod_count>
+        <sys_name>PB Header</sys_name>
+        <sys_package display_value="Pricebook V1" source="x_100559_pricebook">bf21c2354f101300e3b03b718110c7fa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Pricebook V1">bf21c2354f101300e3b03b718110c7fa</sys_scope>
+        <sys_update_name>sp_widget_ed2412064fe01300e3b03b718110c7f5</sys_update_name>
+        <sys_updated_by>vf.jarrod.eising</sys_updated_by>
+        <sys_updated_on>2018-03-06 12:41:24</sys_updated_on>
+        <template><![CDATA[<ul class="nav navbar-nav" aria-label="${Header menu}">
+  <div class="header-loader" ng-show="loadingIndicator">
+    <div class="hidden-xs sp-loading-indicator la-sm">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <li ng-if="s.status" class="panel-body form-horizontal" ng-repeat="s in sessions">
+    <span class="pull-left thumb-sm avatar m-r">
+      <sn-avatar primary="s.user_id" show-presence="true" enable-context-menu="false"></sn-avatar>
+    </span>
+    <div class="clear">
+      <div><span>{{::s.user_display_name}}</span></div>
+      <small class="text-muted">{{s.status}}</small>
+    </div>
+  </li>  
+  <li class="company_picker">
+    <div class="panel-body form-horizontal">
+      <div class="col-sm-11">
+        <sn-record-picker field="company" 
+                          table="'core_company'" 
+                          default-query="'customer=true'"
+                          display-field="'name'" 
+                          value-field="'sys_id'" 
+                          search-fields="'name'" 
+                          page-size="100"
+                          placeholder="Select a customer..."
+                          id="cp">                >
+        </sn-record-picker>
+      </div>
+    </div>
+  </li>
+  <li class="opportunity_picker">
+    <div class="panel-body form-horizontal">
+      <div class="col-sm-11">
+        <sn-record-picker field="opportunity" 
+                          table="'u_opportunity'" 
+                          display-field="'u_name'" 
+                          default-query='data.oppQuery'
+                          value-field="'sys_id'" 
+                          search-fields="'u_name'" 
+                          page-size="100"
+                          placeholder="Select an opportunity..."
+                          id="op">
+        </sn-record-picker>
+      </div>
+    </div>
+  </li>
+  <li class="pricebook_picker">
+    <div class="panel-body form-horizontal">
+      <div class="col-sm-11">
+        <sn-record-picker field="pricebook" 
+                          table="'x_100559_pricebook_v1_table'" 
+                          display-field="'number'" 
+                          default-query='data.pbQuery'
+                          value-field="'sys_id'" 
+                          search-fields="'short_description'" 
+                          page-size="100"
+                          placeholder="Select a pricebook..."
+                          id="pp">
+        </sn-record-picker>
+      </div>
+    </div>
+  </li>
+</ul>
+
+]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_section caption="" section_id="ac96c4714fec1300e3b03b718110c70e" sys_domain="global" table="x_100559_pricebook_v1_table" version="3" view="pb">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>number</element>
+            <position>0</position>
+            <sys_created_by>vf.jarrod.eising</sys_created_by>
+            <sys_created_on>2018-02-28 05:55:35</sys_created_on>
+            <sys_id>bcd6c4b14fec1300e3b03b718110c70f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_100559_pricebook_v1_table" sys_domain="global" view="6c96c4714fec1300e3b03b718110c709">ac96c4714fec1300e3b03b718110c70e</sys_ui_section>
+            <sys_updated_by>vf.jarrod.eising</sys_updated_by>
+            <sys_updated_on>2018-02-28 05:55:35</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>opportunity</element>
+            <position>1</position>
+            <sys_created_by>vf.jarrod.eising</sys_created_by>
+            <sys_created_on>2018-02-28 05:55:35</sys_created_on>
+            <sys_id>30d6c4b14fec1300e3b03b718110c710</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_100559_pricebook_v1_table" sys_domain="global" view="6c96c4714fec1300e3b03b718110c709">ac96c4714fec1300e3b03b718110c70e</sys_ui_section>
+            <sys_updated_by>vf.jarrod.eising</sys_updated_by>
+            <sys_updated_on>2018-02-28 05:55:35</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>2</position>
+            <sys_created_by>vf.jarrod.eising</sys_created_by>
+            <sys_created_on>2018-02-28 05:55:35</sys_created_on>
+            <sys_id>b0d6c4b14fec1300e3b03b718110c710</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_100559_pricebook_v1_table" sys_domain="global" view="6c96c4714fec1300e3b03b718110c709">ac96c4714fec1300e3b03b718110c70e</sys_ui_section>
+            <sys_updated_by>vf.jarrod.eising</sys_updated_by>
+            <sys_updated_on>2018-02-28 05:55:35</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>state</element>
+            <position>3</position>
+            <sys_created_by>vf.jarrod.eising</sys_created_by>
+            <sys_created_on>2018-02-28 05:55:35</sys_created_on>
+            <sys_id>34d6c4b14fec1300e3b03b718110c710</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_100559_pricebook_v1_table" sys_domain="global" view="6c96c4714fec1300e3b03b718110c709">ac96c4714fec1300e3b03b718110c70e</sys_ui_section>
+            <sys_updated_by>vf.jarrod.eising</sys_updated_by>
+            <sys_updated_on>2018-02-28 05:55:35</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>assignment_group</element>
+            <position>4</position>
+            <sys_created_by>vf.jarrod.eising</sys_created_by>
+            <sys_created_on>2018-02-28 05:55:35</sys_created_on>
+            <sys_id>b4d6c4b14fec1300e3b03b718110c710</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_100559_pricebook_v1_table" sys_domain="global" view="6c96c4714fec1300e3b03b718110c709">ac96c4714fec1300e3b03b718110c70e</sys_ui_section>
+            <sys_updated_by>vf.jarrod.eising</sys_updated_by>
+            <sys_updated_on>2018-02-28 05:55:35</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>assigned_to</element>
+            <position>5</position>
+            <sys_created_by>vf.jarrod.eising</sys_created_by>
+            <sys_created_on>2018-02-28 05:55:35</sys_created_on>
+            <sys_id>38d6c4b14fec1300e3b03b718110c710</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_100559_pricebook_v1_table" sys_domain="global" view="6c96c4714fec1300e3b03b718110c709">ac96c4714fec1300e3b03b718110c70e</sys_ui_section>
+            <sys_updated_by>vf.jarrod.eising</sys_updated_by>
+            <sys_updated_on>2018-02-28 05:55:35</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>6</position>
+            <sys_created_by>vf.jarrod.eising</sys_created_by>
+            <sys_created_on>2018-02-28 05:55:35</sys_created_on>
+            <sys_id>b8d6c4b14fec1300e3b03b718110c710</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_100559_pricebook_v1_table" sys_domain="global" view="6c96c4714fec1300e3b03b718110c709">ac96c4714fec1300e3b03b718110c70e</sys_ui_section>
+            <sys_updated_by>vf.jarrod.eising</sys_updated_by>
+            <sys_updated_on>2018-02-28 05:55:35</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>short_description</element>
+            <position>7</position>
+            <sys_created_by>vf.jarrod.eising</sys_created_by>
+            <sys_created_on>2018-02-28 05:55:35</sys_created_on>
+            <sys_id>3cd6c4b14fec1300e3b03b718110c710</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_100559_pricebook_v1_table" sys_domain="global" view="6c96c4714fec1300e3b03b718110c709">ac96c4714fec1300e3b03b718110c70e</sys_ui_section>
+            <sys_updated_by>vf.jarrod.eising</sys_updated_by>
+            <sys_updated_on>2018-02-28 05:55:35</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>x_100559_pricebook_v1_table</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>vf.jarrod.eising</sys_created_by>
+            <sys_created_on>2018-02-28 05:54:29</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>ac96c4714fec1300e3b03b718110c70e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_100559_pricebook_v1_table</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Pricebook V1" source="x_100559_pricebook">bf21c2354f101300e3b03b718110c7fa</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Pricebook V1">bf21c2354f101300e3b03b718110c7fa</sys_scope>
+            <sys_update_name>sys_ui_section_ac96c4714fec1300e3b03b718110c70e</sys_update_name>
+            <sys_updated_by>vf.jarrod.eising</sys_updated_by>
+            <sys_updated_on>2018-02-28 05:54:29</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="pb" name="pb">6c96c4714fec1300e3b03b718110c709</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_instance">
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="2">34ef1c334f641300e3b03b718110c798</sp_column>
+        <sp_widget display_value="PB Scope">fc9868684f701300e3b03b718110c70f</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>vf.jarrod.eising</sys_created_by>
+        <sys_created_on>2018-03-08 21:27:14</sys_created_on>
+        <sys_id>5ec8a4604f741300e3b03b718110c7a4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Pricebook V1" source="x_100559_pricebook">bf21c2354f101300e3b03b718110c7fa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Pricebook V1">bf21c2354f101300e3b03b718110c7fa</sys_scope>
+        <sys_update_name>sp_instance_5ec8a4604f741300e3b03b718110c7a4</sys_update_name>
+        <sys_updated_by>vf.jarrod.eising</sys_updated_by>
+        <sys_updated_on>2018-03-08 21:27:14</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters/>
+    </sp_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=5ec8a4604f741300e3b03b718110c7a4"/>
+</record_update>

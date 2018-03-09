@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope,spUtil,$location) {
+	/* widget controller */
+	var c = this;
+	$scope.pricebook = {
+		displayValue: $scope.data.short_description,
+		value: $scope.data.sys_id,
+		name: 'pricebook',
+		table: 'x_100559_pricebook_v1_table'
+	};
+
+	$scope.$on("field.change", function(evt, parms) {
+		if (parms.field.name == 'pricebook') {
+			var table = parms.field.table;
+			var sys_id = parms.newValue;
+			var path = $location.path();
+			$location.url(path + '?table=' + table + '&sys_id=' + sys_id + '&view=' + 'pb');
+			spUtil.get('widget-form',{table: table, sys_id: sys_id})
+		}
+	});
+}
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.select {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: auto;
+    width: 330px;
+    height: 100%;
+    border-bottom: 0px;
+    border-radius: 3px;
+    font-size: 12px;
+    box-shadow: 0px 1em 2em -1.5em rgba(0, 0, 0, .5);
+    &gt;i.toggle {
+        position: absolute;
+        z-index: 4;
+        right: 1.5em;
+        top: 1.6em;
+        color: #ccc
+    }
+    .title,
+    .placeholder {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 1.5em 2em;
+        background: rgba(255, 255, 255, 1);
+        border-top: 1px solid rgba(0, 0, 0, .05);
+        cursor: pointer;
+    }
+    &amp;&gt;input {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        display: block;
+        opacity: 0;
+        cursor: pointer;
+        &amp;:checked {
+            ~i.toggle.icon-arrow-down {
+                display: none;
+            }
+            ~i.toggle.icon-arrow-up {
+                display: block;
+            }
+            div.options label.option .title {
+                display: none!important;
+            }
+        }
+        &amp;:not(:checked) {
+            z-index: 4;
+            ~label.option {
+                &gt;span.title {
+                    display: none;
+                }
+            }
+            ~i.toggle.icon-arrow-up {
+                display: none;
+            }
+            ~i.toggle.icon-arrow-down {
+                display: block;
+            }
+        }
+        &amp;:disabled {
+            cursor: no-drop;
+        }
+    }
+    &amp;&gt;span.placeholder {
+        position: relative;
+        z-index: 0;
+        display: inline-block;
+        width: 100%;
+        color: #999;
+        border-top: 0px;
+    }
+    label.option {
+        display: block;
+        overflow: hidden;
+        z-index: 1;
+        width: 100%;
+        transition: all 1s ease-out;
+        span.title {
+            position: relative;
+            z-index: 2;
+            transition: background .3s ease-out;
+            i.icon {
+                padding-right: 8px;
+                color: rgba(146, 168, 209, 1);
+            }
+            &amp;:hover {
+                color: #fff;
+                background: rgba(255, 255, 255, .3);
+                box-shadow: inset 0px 1px 0px rgba(0, 0, 0, .1);
+            }
+        }
+        input {
+            display: none;
+            &amp;:checked~span.title {
+                position: absolute;
+                display: block;
+                z-index: 3;
+                top: 0px;
+                font-size: 12px;
+                background: #fff;
+                border-top: 0px;
+                box-shadow: none;
+                color: inherit;
+                width: 100%;
+            }
+            &amp;:disabled {
+                &amp;~span.title {
+                    background: #f9f9f9!important;
+                    color: #aaa;
+                    &amp;:hover {
+                        color: #aaa;
+                        background: none;
+                        cursor: no-drop;
+                    }
+                }
+            }
+        }
+    }
+} </css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>pb_selectbox</id>
+        <internal>false</internal>
+        <link/>
+        <name>PB SelectBox</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */ 
+	var list = [];
+	var grPB = new GlideRecordSecure('x_100559_pricebook_v1_table');
+	grPB.query();
+	while (grPB.next()) {
+		list.push({
+				label: grPB.short_description.toString(),
+				value: grPB.sys_id.toString()
+			});
+	}
+	data.account=list;
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>vf.jarrod.eising</sys_created_by>
+        <sys_created_on>2018-02-27 21:47:27</sys_created_on>
+        <sys_id>2a17d6a54fa81300e3b03b718110c707</sys_id>
+        <sys_mod_count>110</sys_mod_count>
+        <sys_name>PB SelectBox</sys_name>
+        <sys_package display_value="Pricebook V1" source="x_100559_pricebook">bf21c2354f101300e3b03b718110c7fa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Pricebook V1">bf21c2354f101300e3b03b718110c7fa</sys_scope>
+        <sys_update_name>sp_widget_2a17d6a54fa81300e3b03b718110c707</sys_update_name>
+        <sys_updated_by>vf.jarrod.eising</sys_updated_by>
+        <sys_updated_on>2018-03-01 10:48:49</sys_updated_on>
+        <template><![CDATA[<div class="panel-body">
+  <div class="col-sm-8">
+    <label>
+      ${PriceBook}
+    </label>
+  </div>
+  <div class="select">
+    <sn-record-picker field="pricebook" 
+                      table="'x_100559_pricebook_v1_table'" 
+                      display-field="'short_description'" 
+                      value-field="'sys_id'" 
+                      search-fields="'short_description'" 
+                      page-size="100">
+    </sn-record-picker>
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

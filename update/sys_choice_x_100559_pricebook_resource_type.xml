@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="type" table="x_100559_pricebook_resource" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Executive Advisor</label>
+            <language>en</language>
+            <name>x_100559_pricebook_resource</name>
+            <sequence>10</sequence>
+            <sys_created_by>vf.jarrod.eising</sys_created_by>
+            <sys_created_on>2018-02-18 23:16:15</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>ac1510fe4f541300e3b03b718110c780</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>vf.jarrod.eising</sys_updated_by>
+            <sys_updated_on>2018-02-18 23:16:15</sys_updated_on>
+            <value>Executive Advisor</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Principal Solutions Consultant/BA</label>
+            <language>en</language>
+            <name>x_100559_pricebook_resource</name>
+            <sequence>20</sequence>
+            <sys_created_by>vf.jarrod.eising</sys_created_by>
+            <sys_created_on>2018-02-18 23:16:30</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>9b2510fe4f541300e3b03b718110c7ef</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>vf.jarrod.eising</sys_updated_by>
+            <sys_updated_on>2018-02-18 23:16:30</sys_updated_on>
+            <value>Principal Solutions Consultant/BA</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Solutions Consultant</label>
+            <language>en</language>
+            <name>x_100559_pricebook_resource</name>
+            <sequence>30</sequence>
+            <sys_created_by>vf.jarrod.eising</sys_created_by>
+            <sys_created_on>2018-02-18 23:16:39</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>593594be4f541300e3b03b718110c7e6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>vf.jarrod.eising</sys_updated_by>
+            <sys_updated_on>2018-02-18 23:16:39</sys_updated_on>
+            <value>Solutions Consultant</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Technical Snr Solutions Consultant</label>
+            <language>en</language>
+            <name>x_100559_pricebook_resource</name>
+            <sequence>40</sequence>
+            <sys_created_by>vf.jarrod.eising</sys_created_by>
+            <sys_created_on>2018-02-18 23:16:50</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4845d8be4f541300e3b03b718110c79d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>vf.jarrod.eising</sys_updated_by>
+            <sys_updated_on>2018-02-18 23:16:50</sys_updated_on>
+            <value>Technical Snr Solutions Consultant</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>type</element>
+            <name>x_100559_pricebook_resource</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>vf.jarrod.eising</sys_created_by>
+            <sys_created_on>2018-02-18 23:16:15</sys_created_on>
+            <sys_id>1b1598be4f541300e3b03b718110c74d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>type</sys_name>
+            <sys_package display_value="Pricebook V1" source="x_100559_pricebook">bf21c2354f101300e3b03b718110c7fa</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Pricebook V1">bf21c2354f101300e3b03b718110c7fa</sys_scope>
+            <sys_update_name>sys_choice_x_100559_pricebook_resource_type</sys_update_name>
+            <sys_updated_by>vf.jarrod.eising</sys_updated_by>
+            <sys_updated_on>2018-02-18 23:16:15</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

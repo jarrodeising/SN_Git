@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Service" max_length="40" name="x_100559_pricebook_service" type="collection">
+        <element label="Active" max_length="40" name="active" type="boolean"/>
+        <element label="Assumptions" max_length="4000" name="assumptions" type="string"/>
+        <element display="true" label="Name" max_length="80" name="name" type="string"/>
+        <element label="Pricebook" max_length="32" name="pricebook" reference="x_100559_pricebook_v1_table" type="reference"/>
+        <element default="javascript:current.getTableName();" label="Class" max_length="80" name="sys_class_name" type="sys_class_name"/>
+        <element label="Template" max_length="40" name="template" type="boolean"/>
+        <index name="index">
+            <element name="pricebook"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_dependency">
+    <sp_dependency action="INSERT_OR_UPDATE">
+        <module>dndlists</module>
+        <name>dndlists</name>
+        <page_load>false</page_load>
+        <sp_portals/>
+        <sys_class_name>sp_dependency</sys_class_name>
+        <sys_created_by>vf.jarrod.eising</sys_created_by>
+        <sys_created_on>2018-03-02 13:32:51</sys_created_on>
+        <sys_id>3b9284a24f245300e3b03b718110c7bc</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>dndlists</sys_name>
+        <sys_package display_value="Pricebook V1" source="x_100559_pricebook">bf21c2354f101300e3b03b718110c7fa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Pricebook V1">bf21c2354f101300e3b03b718110c7fa</sys_scope>
+        <sys_update_name>sp_dependency_3b9284a24f245300e3b03b718110c7bc</sys_update_name>
+        <sys_updated_by>vf.jarrod.eising</sys_updated_by>
+        <sys_updated_on>2018-03-02 13:33:24</sys_updated_on>
+    </sp_dependency>
+</record_update>

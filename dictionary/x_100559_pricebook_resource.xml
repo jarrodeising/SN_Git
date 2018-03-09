@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Resource" max_length="40" name="x_100559_pricebook_resource" type="collection">
+        <element label="Deliverable" max_length="32" name="deliverable" reference="x_100559_pricebook_deliverable" type="reference"/>
+        <element label="Hours" max_length="40" name="hours" type="integer"/>
+        <element choice="1" label="Type" max_length="40" name="type" type="choice">
+            <choice>
+                <element label="Executive Advisor" sequence="10" value="Executive Advisor"/>
+                <element label="Principal Solutions Consultant/BA" sequence="20" value="Principal Solutions Consultant/BA"/>
+                <element label="Solutions Consultant" sequence="30" value="Solutions Consultant"/>
+                <element label="Technical Snr Solutions Consultant" sequence="40" value="Technical Snr Solutions Consultant"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="deliverable"/>
+        </index>
+    </element>
+</database>
